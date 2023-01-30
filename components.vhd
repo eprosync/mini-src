@@ -23,4 +23,69 @@ package system_components is
 			q: out std_logic_vector(31 downto 0)
 		);
 	end component;
+	
+	-- encoder32to5
+	component encoder32to5
+		port (
+			R0,
+			R1,
+			R2,
+			R3,
+			R4,
+			R5,
+			R6,
+			R7,
+			R8,
+			R9,
+			R10,
+			R11,
+			R12,
+			R13,
+			R14,
+			R15,
+			HI,
+			LO,
+			ZHI,
+			ZLO,
+			PC,
+			MDR,
+			INPORT,
+			C: in std_logic;
+			
+			S : out std_logic_vector (4 downto 0)
+		);
+	end component;
+	
+	component busmux
+		port (
+			R0,
+			R1,
+			R2,
+			R3,
+			R4,
+			R5,
+			R6,
+			R7,
+			R8,
+			R9,
+			R10,
+			R11,
+			R12,
+			R13,
+			R14,
+			R15,
+			HI,
+			LO,
+			ZHI,
+			ZLO,
+			PC,
+			MDR,
+			INPORT,
+			C
+			: in std_logic_vector (31 downto 0);
+		
+			S : in std_logic_vector (4 downto 0);
+			BusMuxOut : out std_logic_vector (31 downto 0)
+		);
+	end component
 end package;

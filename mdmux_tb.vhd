@@ -3,6 +3,7 @@
 
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 -- In test benchs we don't have any ports
 -- This is because we aren't making a component but rather a simulation

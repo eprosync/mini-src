@@ -87,5 +87,5 @@ package system_components is
 			S : in std_logic_vector (4 downto 0);
 			BusMuxOut : out std_logic_vector (31 downto 0)
 		);
-	end component
+	end component;
 end package;

@@ -15,6 +15,8 @@ end entity;
 architecture behaviour of processor is
 	
 begin
+
+	
 	
 	process(clk, reset_n) is
 	

@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 use work.system_components.all;
 
 entity ALU_tb is
-
+	
 end;
 
 architecture ALU_tb_behavioral of ALU_tb is

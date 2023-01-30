@@ -3,7 +3,6 @@
 
 library ieee;
 use ieee.std_logic_1164.all;
-use work.system_components.all;
 
 -- In test benchs we don't have any ports
 -- This is because we aren't making a component but rather a simulation
@@ -18,6 +17,14 @@ architecture mdmux_tb_arch of mdmux_tb is
 	
 	-- we will be looking for this signal in modelsim to see if it works
 	signal D_tb : std_logic_vector(31 downto 0);
+	
+	component MDMux
+		port (
+			BusMuxOut, Mdatain : in std_logic_vector (31 downto 0);
+			ReadCmd : in std_logic;
+			D : out std_logic_vector (31 downto 0)
+		);
+	end component;
 begin
 	-- map our mock signals to the component
 	DUT1 : MDMux
@@ -26,7 +33,7 @@ begin
 			Mdatain => Mdatain_tb,
 			ReadCmd => ReadCmd_tb,
 			D => D_tb
-		)
+		);
 		
 	-- this is where the sim will be running it
 	sim_process : process

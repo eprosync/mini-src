@@ -28,7 +28,7 @@ architecture behaviour of ALU is
 			-- the x"0000_0000_0000_0000" is an overhead for the 63 downto 0
 			when "0000" => C_signed := (A_signed + B_signed) + x"0000_0000_0000_0000"; -- add
 			when "0001" => C_signed := (A_signed - B_signed) + x"0000_0000_0000_0000"; -- sub
-			when "0010" => C_signed := (A_signed * B_signed) + x"0000_0000_0000_0000"; -- mul
+			when "0010" => C_signed := (A_signed * B_signed); -- mul
 			when "0011" => C_signed := (A_signed mod B_signed) & (A_signed / B_signed); -- div
 			when "0100" => C_signed := (A_signed and B_signed) + x"0000_0000_0000_0000"; -- and
 			when "0101" => C_signed := (A_signed or B_signed) + x"0000_0000_0000_0000"; -- or

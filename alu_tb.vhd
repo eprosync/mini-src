@@ -1,14 +1,69 @@
+-- A simple test bench for the ALU
+-- I made this with comments so that later on we would understand what to do
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use work.system_components.all;
 
-entity ALU_tb is
+-- In test benchs we don't have any ports
+-- This is because we aren't making a component but rather a simulation
+entity ALU_tb is 
+end entity;
+
+architecture ALU_tb_arch of ALU_tb is
+	-- create our mock signals to shove into the component
+	signal A_tb : std_logic_vector(31 downto 0);
+	signal B_tb : std_logic_vector(31 downto 0);
+	signal CS_tb : std_logic_vector(3 downto 0);
 	
-end;
-
-architecture ALU_tb_behavioral of ALU_tb is
-
+	-- we will be looking for this signal in modelsim to see if it works
+	signal C_tb : std_logic_vector(63 downto 0);
+	
+	component ALU
+		port (
+			A,B : in std_logic_vector (31 downto 0);
+			CS : in std_logic_vector (3 downto 0);
+			C : out std_logic_vector (63 downto 0)
+		);
+	end component;
 begin
-
+	-- map our mock signals to the component
+	DUT1 : ALU
+		port map (
+			A => A_tb,
+			B => B_tb,
+			CS => CS_tb,
+			C => C_tb
+		);
+		
+	-- this is where the sim will be running it
+	sim_process : process
+	
+	begin
+		-- delays are used so that we can see the change in signals
+		-- this is espessially useful if your working with timers as well
+		-- this is just so we don't have to look for like a 1ns change
+		wait for 0ns;
+		
+		-- addition
+		A_tb <= b"00000000000000000000000000001001";
+		B_tb <= b"00000000000000000000000000001001";
+		CS_tb <= b"0000";
+		
+		wait for 20ns;
+		
+		-- subtraction
+		A_tb <= b"00000000000000000000000000001001";
+		B_tb <= b"00000000000000000000000000001001";
+		CS_tb <= b"0001";
+		
+		wait for 20ns;
+		
+		-- multiply
+		A_tb <= b"00000000000000000000000000000010";
+		B_tb <= b"00000000000000000000000000000100";
+		CS_tb <= b"0011";
+		
+		wait;
+	end process;
 end architecture;

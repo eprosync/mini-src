@@ -96,4 +96,11 @@ package system_components is
 			D : out std_logic_vector (31 downto 0)
 		);
 	end component;
+	
+	component ZSplit
+		port (
+			Z_in : in std_logic_vector (63 downto 0);
+			ZHI, ZLO : out std_logic_vector (31 downto 0)
+		);
+	end component
 end package;

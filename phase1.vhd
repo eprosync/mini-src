@@ -71,6 +71,7 @@ entity phase1 is
 		
 		-- this connects to each register to feed data to them as a multiplexer
 		BusMuxOut :  INOUT  STD_LOGIC_VECTOR(31 DOWNTO 0);
+		S_out : INOUT STD_LOGIC_VECTOR(4 downto 0);
 		
 		-- these are the in/outs from each register
 		C_in : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -114,7 +115,7 @@ architecture arch_phase1 of phase1 is
 	
 begin
 	-- component mappings
-	ALU: ALU
+	ALU_component: ALU
 	PORT MAP (
 		A => Y_out,
 		B => BusMuxOut,
@@ -122,7 +123,7 @@ begin
 		C => ALU_out
 	);
 	
-	Encoder32To5: Encoder32To5
+	Encoder32To5_component: Encoder32To5
 	PORT MAP (
 		R0 => R0_cs_in,
 		R1 => R1_cs_in,
@@ -154,7 +155,7 @@ begin
 		S => S_out
 	);
 	
-	BusMux: BusMux
+	BusMux_component: BusMux
 	PORT MAP (
 		R0 => R0_out,
 		R1 => R1_out,

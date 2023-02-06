@@ -85,229 +85,256 @@ end component;
 begin
 
 C: reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_C,
 	d => C_in,
-	q => C_out;
-	)
+	q => C_out
+);
 
 HI : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_HI,
 	d => BusMuxOut,
-	q => HI_out;
-	)
+	q => HI_out
+);
 
 INPORT: reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_INPORT,
 	d => INPORT_in,
-	q => INPORT_out;
-	)
+	q => INPORT_out
+);
 
 IR: reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_IR,
 	d => BusMuxOut,
-	q => IR_out;
-	)
+	q => IR_out
+);
 
 LO: reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_LO,
 	d => BusMuxOut,
-	q => LO_out;
-	)
+	q => LO_out
+);
 
 MAR : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_MAR,
 	d => BusMuxOut,
-	q => MAR_out;
-	)
+	q => MAR_out
+);
 
 MDR: reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_MAR,
 	d => MDR_in,
-	q => MDR_out;
-	)
+	q => MDR_out
+);
 
 PC: reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_PC,
 	d => BusMuxOut,
-	q => PC_out;
-	)
+	q => PC_out
+);
 
 
 R0 : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_R0,
 	d => BusMuxOut,
-	q => R0_out;
-	)
+	q => R0_out
+);
 
 R1 : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_R1,
 	d => BusMuxOut,
-	q => R1_out;
-	)
+	q => R1_out
+);
 
 R2 : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_R2,
 	d => BusMuxOut,
-	q => R2_out;
-	)
+	q => R2_out
+);
 
 R3 : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_R3,
 	d => BusMuxOut,
-	q => R3_out;
-	)
+	q => R3_out
+);
 
 R4 : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_R4,
 	d => BusMuxOut,
-	q => R4_out;
-	)
+	q => R4_out
+);
 
 R5 : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_R5,
 	d => BusMuxOut,
-	q => R5_out;
-	)
+	q => R5_out
+);
 
 R6 : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_R6,
 	d => BusMuxOut,
-	q => R6_out;
-	)
+	q => R6_out
+);
 
 R7 : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_R7,
 	d => BusMuxOut,
-	q => R7_out;
-	)
+	q => R7_out
+);
 
 R8 : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_R8,
 	d => BusMuxOut,
-	q => R8_out;
-	)
+	q => R8_out
+);
 
 R9 : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_R9,
 	d => BusMuxOut,
-	q => R9_out;
-	)
+	q => R9_out
+);
 
 R10 : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_R10,
 	d => BusMuxOut,
-	q => R10_out;
-	)
+	q => R10_out
+);
 
 R11 : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_R11,
 	d => BusMuxOut,
-	q => R11_out;
-	)
+	q => R11_out
+);
 
 R12 : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_R12,
 	d => BusMuxOut,
-	q => R12_out;
-	)
+	q => R12_out
+);
 
 R13 : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_R13,
 	d => BusMuxOut,
-	q => R13_out;
-	)
+	q => R13_out
+);
 
 R14 : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_R14,
 	d => BusMuxOut,
-	q => R14_out;
-	)
+	q => R14_out
+);
 
 R15 : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_R4,
 	d => BusMuxOut,
-	q => R15_out;
-	)
+	q => R15_out
+);
 
 Y : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_Y,
 	d => ZHI_in,
-	q => Y_out;
-	)
+	q => Y_out
+);
 
 Z : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_Z,
 	d => ALU_out,
-	q => Z_out;
-	)
+	q => Z_out
+);
 
 ZHI : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_ZHI,
 	d => ZHI_in,
-	q => ZLO_out;
-	)
+	q => ZLO_out
+);
 
 ZLO : reg32
-PORT MAP(reset_n => reset_n
+PORT MAP(
+	reset_n => reset_n,
 	clk => clk,
 	en => en_ZLO,
 	d => ZLO_in,
-	q => ZLO_out;
-	)
-
+	q => ZLO_out
+);
 
 end arch_phase1;

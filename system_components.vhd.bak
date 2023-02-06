@@ -9,9 +9,9 @@ package system_components is
 	-- ALU
 	component ALU
 		port (
-			A,B : in std_logic_vector (31 downto 0);
+			A,B : in signed (31 downto 0);
 			CS : in std_logic_vector (3 downto 0);
-			C : out std_logic_vector (63 downto 0)
+			C : out signed (63 downto 0)
 		);
 	end component;
 	

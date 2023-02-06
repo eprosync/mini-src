@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity busmux is
+entity BusMux is
 	port (
 		R0,
 		R1,
@@ -34,7 +34,7 @@ entity busmux is
 	);
 end entity;
 
-architecture behavior of busmux is
+architecture behavior of BusMux is
 	
 begin
 	BusMuxOut <= R0 when (S="00000") else

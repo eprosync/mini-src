@@ -5,7 +5,7 @@ use work.system_components.all;
 entity phase1 is
 	port (
 		clk :  IN  STD_LOGIC;
-		clear :  IN  STD_LOGIC;
+		reset_n :  IN  STD_LOGIC;
 		en_R0 :  IN  STD_LOGIC;
 		en_R1 :  IN  STD_LOGIC;
 		en_R2 :  IN  STD_LOGIC;

@@ -81,10 +81,12 @@ set_global_assignment -name EDA_TEST_BENCH_NAME alu_tb -section_id eda_simulatio
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id alu_tb
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "80 ns" -section_id alu_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME alu_tb -section_id alu_tb
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name EDA_TEST_BENCH_FILE mdmux_tb.vhd -section_id mdmux_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE mdmux.vhd -section_id mdmux_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE busmux_tb.vhd -section_id busmux_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE busmux.vhd -section_id busmux_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE alu.vhd -section_id alu_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE alu_tb.vhd -section_id alu_tb
+set_global_assignment -name VHDL_FILE phase1_tb.vhd
+set_global_assignment -name VHDL_FILE zsplit.vhd
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

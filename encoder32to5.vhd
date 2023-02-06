@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity encoder32to5 is
+entity Encoder32To5 is
 	port (
 		R0,
 		R1,
@@ -32,7 +32,7 @@ entity encoder32to5 is
 	);
 end entity;
 
-architecture behavior of encoder32to5 is
+architecture behavior of Encoder32To5 is
 begin
 	S <= "00000" when (R0='1' and R1='0' and R2='0' and R3='0' and R4='0' and R5='0' and R6='0' and R7='0' and R8='0' and R9='0' and R10='0' and R11='0' and R12='0' and R13='0' and R14='0' and R15='0' and HI='0' and LO='0' and ZHI='0' and ZLO='0' and PC='0' and MDR='0' and INPORT='0' and C='0') else
 		"00001" when (R0='0' and R1='1' and R2='0' and R3='0' and R4='0' and R5='0' and R6='0' and R7='0' and R8='0' and R9='0' and R10='0' and R11='0' and R12='0' and R13='0' and R14='0' and R15='0' and HI='0' and LO='0' and ZHI='0' and ZLO='0' and PC='0' and MDR='0' and INPORT='0' and C='0') else

@@ -24,8 +24,8 @@ package system_components is
 		);
 	end component;
 	
-	-- encoder32to5
-	component encoder32to5
+	-- Encoder32To5
+	component Encoder32To5
 		port (
 			R0,
 			R1,
@@ -56,7 +56,7 @@ package system_components is
 		);
 	end component;
 	
-	component busmux
+	component BusMux
 		port (
 			R0,
 			R1,

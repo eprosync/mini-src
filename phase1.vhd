@@ -415,7 +415,7 @@ begin
 		q => Y_out
 	);
 
-	Z : reg32
+	Z : reg64
 	PORT MAP(
 		reset_n => reset_n,
 		clk => clk,

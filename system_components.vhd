@@ -24,6 +24,15 @@ package system_components is
 		);
 	end component;
 	
+	-- reg64
+	component reg64
+		port (
+			clk, reset_n, en: in std_logic;
+			d: in std_logic_vector(63 downto 0); 
+			q: out std_logic_vector(63 downto 0)
+		);
+	end component;
+	
 	-- Encoder32To5
 	component Encoder32To5
 		port (
@@ -102,5 +111,6 @@ package system_components is
 			Z_in : in std_logic_vector (63 downto 0);
 			ZHI, ZLO : out std_logic_vector (31 downto 0)
 		);
-	end component
+	end component;
+	
 end package;

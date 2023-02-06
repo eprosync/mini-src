@@ -49,17 +49,6 @@ set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
-set_global_assignment -name BDF_FILE SimpleComputer.bdf
-set_global_assignment -name VHDL_FILE processor.vhd
-set_global_assignment -name VHDL_FILE reg32.vhd
-set_global_assignment -name VHDL_FILE alu.vhd
-set_global_assignment -name VHDL_FILE alu_tb.vhd
-set_global_assignment -name VHDL_FILE mem512.vhd
-set_global_assignment -name VHDL_FILE mdmux.vhd
-set_global_assignment -name VHDL_FILE encoder32to5.vhd
-set_global_assignment -name VHDL_FILE busmux.vhd
-set_global_assignment -name VHDL_FILE phase1.vhd
-set_global_assignment -name VHDL_FILE mdmux_tb.vhd
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
 set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH alu_tb -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_NAME mdmux_tb -section_id eda_simulation
@@ -68,8 +57,6 @@ set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "40 ns" -section_id mdmux
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME mdmux_tb -section_id mdmux_tb
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name VHDL_FILE system_components.vhd
-set_global_assignment -name VHDL_FILE busmux_tb.vhd
 set_global_assignment -name EDA_TEST_BENCH_NAME busmux_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id busmux_tb
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "60 ns" -section_id busmux_tb
@@ -84,9 +71,23 @@ set_global_assignment -name EDA_TEST_BENCH_FILE busmux_tb.vhd -section_id busmux
 set_global_assignment -name EDA_TEST_BENCH_FILE busmux.vhd -section_id busmux_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE alu.vhd -section_id alu_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE alu_tb.vhd -section_id alu_tb
-set_global_assignment -name VHDL_FILE phase1_tb.vhd
-set_global_assignment -name VHDL_FILE zsplit.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VHDL_FILE reg64.vhd
+set_global_assignment -name BDF_FILE SimpleComputer.bdf
+set_global_assignment -name VHDL_FILE processor.vhd
+set_global_assignment -name VHDL_FILE reg32.vhd
+set_global_assignment -name VHDL_FILE alu.vhd
+set_global_assignment -name VHDL_FILE alu_tb.vhd
+set_global_assignment -name VHDL_FILE mem512.vhd
+set_global_assignment -name VHDL_FILE mdmux.vhd
+set_global_assignment -name VHDL_FILE encoder32to5.vhd
+set_global_assignment -name VHDL_FILE busmux.vhd
+set_global_assignment -name VHDL_FILE phase1.vhd
+set_global_assignment -name VHDL_FILE mdmux_tb.vhd
+set_global_assignment -name VHDL_FILE system_components.vhd
+set_global_assignment -name VHDL_FILE busmux_tb.vhd
+set_global_assignment -name VHDL_FILE phase1_tb.vhd
+set_global_assignment -name VHDL_FILE zsplit.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

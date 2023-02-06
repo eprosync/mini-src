@@ -12,6 +12,5 @@ end entity;
 architecture behavior of MDMux is
 
 begin
-	D <= BusMuxOut when ReadCmd='0' else
-	Mdatain when ReadCmd='1';
+	D <= Mdatain when (ReadCmd='1') else BusMuxOut;
 end architecture;

@@ -88,4 +88,12 @@ package system_components is
 			BusMuxOut : out std_logic_vector (31 downto 0)
 		);
 	end component;
+	
+	component MDMux
+		port (
+			BusMuxOut, Mdatain : in std_logic_vector (31 downto 0);
+			ReadCmd : in std_logic;
+			D : out std_logic_vector (31 downto 0)
+		);
+	end component;
 end package;

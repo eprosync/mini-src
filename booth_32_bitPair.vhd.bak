@@ -1,0 +1,48 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity booth_32_bitPair is 
+	port(
+		M: in signed(31 DOWNTO 0); -- Multiplicand
+		Q: in signed(31 DOWNTO 0); -- Multiplier
+		P: out signed(63 DOWNTO 0)
+	);
+end entity;
+
+architecture behavior of booth_32_bitPair is
+
+begin
+	process (M, Q)
+		variable product_storage : signed (63 downto 0);
+		variable M_bit_pattern : signed (2 downto 0); -- 2 bits but we need to consider 2's comp
+	begin
+		-- setup
+		product_storage := x"0_0000_0000_0000_0000" + Q;
+		M_bit_pattern := product_storage(2 downto 0);
+		
+		for bit_offset in 0 to 32 loop
+			
+			case M_bit_pattern is
+				-- "000" and "111" are ignored, since they are 0 x M
+				when "001" => -- +1 x M
+					product_storage(64 downto 33) := product_storage(64 downto 33) + M;
+				when "010" => -- +1 x M
+					product_storage(64 downto 33) := product_storage(64 downto 33) + M;
+				when "011" => -- +2 x M
+					product_storage(64 downto 33) := product_storage(64 downto 33) + M + M;
+				when "100" => -- -2 x M
+					product_storage(64 downto 33) := product_storage(64 downto 33) - (M + M);
+				when "101" => -- -1 x M
+					product_storage(64 downto 33) := product_storage(64 downto 33) - M;
+				when "110" => -- -1 x M
+					product_storage(64 downto 33) := product_storage(64 downto 33) - M;
+			end case;
+			
+			product_storage := product_storage srl 1; -- shift by 1 to the right
+			M_bit_pattern := product_storage(2 downto 0);
+		end loop;
+		
+		P <= product_storage srl 1;
+	end process;
+end architecture;

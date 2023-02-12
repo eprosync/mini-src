@@ -14,7 +14,7 @@
 
 -- PROGRAM		"Quartus II 64-Bit"
 -- VERSION		"Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
--- CREATED		"Sun Feb 12 09:20:25 2023"
+-- CREATED		"Sun Feb 12 09:58:01 2023"
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all; 
@@ -81,7 +81,7 @@ ENTITY phase1 IS
 		MARin :  IN  STD_LOGIC;
 		IRin :  IN  STD_LOGIC;
 		CS :  IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
-		MDatain :  IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
+		Mdatain :  IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		BusMuxOut :  OUT  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		HI_out :  OUT  STD_LOGIC_VECTOR(31 DOWNTO 0);
 		IR_out :  OUT  STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -384,7 +384,7 @@ PORT MAP(clk => clk,
 b2v_MDMux_Controller : mdmux
 PORT MAP(ReadCmd => Read,
 		 BusMuxOut => SYNTHESIZED_WIRE_58,
-		 Mdatain => MDatain,
+		 Mdatain => Mdatain,
 		 D => SYNTHESIZED_WIRE_34);
 
 

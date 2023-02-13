@@ -14,11 +14,9 @@ architecture behavior of alu_32_to_64 is
 
 begin
 	process(C_in, en)
-	variable temp: signed(31 downto 0);
 	begin
-		temp := signed(C_in);
 		case en is
-			when '1' => C_out <= std_logic_vector(temp + x"0000_0000_0000_0000");
+			when '1' => C_out <= std_logic_vector(unsigned(C_in) + x"0000_0000_0000_0000");
 			when others => C_out <= x"0000_0000_0000_0000";
 		end case;
 	end process;

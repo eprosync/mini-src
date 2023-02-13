@@ -69,7 +69,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 2120 672 2296 688)
+	(rect 2560 672 2736 688)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "C[63..0]" (rect 90 0 130 12)(font "Arial" ))
 	(pt 0 8)
@@ -1296,7 +1296,7 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1888 648 2120 888)
+	(rect 2328 648 2560 888)
 	(text "alu_op_combiner" (rect 5 0 87 12)(font "Arial" ))
 	(text "op_combiner" (rect 8 224 70 236)(font "Arial" ))
 	(port
@@ -2211,6 +2211,21 @@ applicable agreement for further details.
 	(pt 1160 136)
 )
 (connector
+	(pt 1336 1576)
+	(pt 2304 1576)
+	(bus)
+)
+(connector
+	(pt 2304 280)
+	(pt 1752 280)
+	(bus)
+)
+(connector
+	(pt 1352 136)
+	(pt 2312 136)
+	(bus)
+)
+(connector
 	(pt 936 1576)
 	(pt 952 1576)
 	(bus)
@@ -2273,6 +2288,11 @@ applicable agreement for further details.
 	(pt 1144 568)
 )
 (connector
+	(pt 1336 568)
+	(pt 2288 568)
+	(bus)
+)
+(connector
 	(pt 936 1720)
 	(pt 944 1720)
 	(bus)
@@ -2319,8 +2339,68 @@ applicable agreement for further details.
 	(pt 1328 1720)
 )
 (connector
+	(pt 2312 1720)
+	(pt 1520 1720)
+	(bus)
+)
+(connector
 	(pt 1312 1720)
 	(pt 1312 1736)
+	(bus)
+)
+(connector
+	(pt 2312 136)
+	(pt 2312 680)
+	(bus)
+)
+(connector
+	(pt 2312 680)
+	(pt 2328 680)
+	(bus)
+)
+(connector
+	(pt 2304 696)
+	(pt 2328 696)
+	(bus)
+)
+(connector
+	(pt 2304 280)
+	(pt 2304 696)
+	(bus)
+)
+(connector
+	(pt 2296 712)
+	(pt 2328 712)
+	(bus)
+)
+(connector
+	(pt 2312 856)
+	(pt 2328 856)
+	(bus)
+)
+(connector
+	(pt 2304 840)
+	(pt 2328 840)
+	(bus)
+)
+(connector
+	(pt 2304 1576)
+	(pt 2304 840)
+	(bus)
+)
+(connector
+	(pt 2288 568)
+	(pt 2288 728)
+	(bus)
+)
+(connector
+	(pt 2288 728)
+	(pt 2328 728)
+	(bus)
+)
+(connector
+	(pt 2312 1720)
+	(pt 2312 856)
 	(bus)
 )
 (connector
@@ -2412,6 +2492,21 @@ applicable agreement for further details.
 (connector
 	(pt 1136 712)
 	(pt 1144 712)
+)
+(connector
+	(pt 1336 712)
+	(pt 2280 712)
+	(bus)
+)
+(connector
+	(pt 2280 712)
+	(pt 2280 744)
+	(bus)
+)
+(connector
+	(pt 2280 744)
+	(pt 2328 744)
+	(bus)
 )
 (connector
 	(pt 936 1000)
@@ -2594,6 +2689,81 @@ applicable agreement for further details.
 	(pt 1144 1432)
 )
 (connector
+	(pt 1336 1432)
+	(pt 2296 1432)
+	(bus)
+)
+(connector
+	(pt 2296 1432)
+	(pt 2296 824)
+	(bus)
+)
+(connector
+	(pt 1336 1288)
+	(pt 2288 1288)
+	(bus)
+)
+(connector
+	(pt 2288 1288)
+	(pt 2288 808)
+	(bus)
+)
+(connector
+	(pt 1336 1144)
+	(pt 2280 1144)
+	(bus)
+)
+(connector
+	(pt 2280 1144)
+	(pt 2280 792)
+	(bus)
+)
+(connector
+	(pt 1336 1000)
+	(pt 2272 1000)
+	(bus)
+)
+(connector
+	(pt 2272 1000)
+	(pt 2272 776)
+	(bus)
+)
+(connector
+	(pt 2272 776)
+	(pt 2328 776)
+	(bus)
+)
+(connector
+	(pt 2280 792)
+	(pt 2328 792)
+	(bus)
+)
+(connector
+	(pt 2288 808)
+	(pt 2328 808)
+	(bus)
+)
+(connector
+	(pt 2296 824)
+	(pt 2328 824)
+	(bus)
+)
+(connector
+	(pt 1336 856)
+	(pt 2264 856)
+	(bus)
+)
+(connector
+	(pt 2264 856)
+	(pt 2264 760)
+	(bus)
+)
+(connector
+	(pt 2328 760)
+	(pt 2264 760)
+	(bus)
+)
+(connector
 	(pt 936 424)
 	(pt 952 424)
 	(bus)
@@ -2604,183 +2774,13 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 1352 136)
-	(pt 1872 136)
-	(bus)
-)
-(connector
-	(pt 1752 280)
-	(pt 1864 280)
-	(bus)
-)
-(connector
-	(pt 1336 568)
-	(pt 1848 568)
-	(bus)
-)
-(connector
-	(pt 1336 712)
-	(pt 1840 712)
-	(bus)
-)
-(connector
-	(pt 1336 1576)
-	(pt 1864 1576)
-	(bus)
-)
-(connector
-	(pt 1520 1720)
-	(pt 1872 1720)
-	(bus)
-)
-(connector
-	(pt 1872 136)
-	(pt 1872 680)
-	(bus)
-)
-(connector
-	(pt 1872 680)
-	(pt 1888 680)
-	(bus)
-)
-(connector
-	(pt 1864 696)
-	(pt 1888 696)
-	(bus)
-)
-(connector
-	(pt 1864 280)
-	(pt 1864 696)
-	(bus)
-)
-(connector
-	(pt 1856 712)
-	(pt 1888 712)
-	(bus)
-)
-(connector
-	(pt 1872 856)
-	(pt 1888 856)
-	(bus)
-)
-(connector
-	(pt 1864 840)
-	(pt 1888 840)
-	(bus)
-)
-(connector
-	(pt 1864 1576)
-	(pt 1864 840)
-	(bus)
-)
-(connector
-	(pt 1848 568)
-	(pt 1848 728)
-	(bus)
-)
-(connector
-	(pt 1848 728)
-	(pt 1888 728)
-	(bus)
-)
-(connector
-	(pt 1872 1720)
-	(pt 1872 856)
-	(bus)
-)
-(connector
-	(pt 1840 712)
-	(pt 1840 744)
-	(bus)
-)
-(connector
-	(pt 1840 744)
-	(pt 1888 744)
-	(bus)
-)
-(connector
-	(pt 1336 1432)
-	(pt 1856 1432)
-	(bus)
-)
-(connector
-	(pt 1856 1432)
-	(pt 1856 824)
-	(bus)
-)
-(connector
-	(pt 1336 1288)
-	(pt 1848 1288)
-	(bus)
-)
-(connector
-	(pt 1848 1288)
-	(pt 1848 808)
-	(bus)
-)
-(connector
-	(pt 1336 1144)
-	(pt 1840 1144)
-	(bus)
-)
-(connector
-	(pt 1840 1144)
-	(pt 1840 792)
-	(bus)
-)
-(connector
-	(pt 1336 1000)
-	(pt 1832 1000)
-	(bus)
-)
-(connector
-	(pt 1832 1000)
-	(pt 1832 776)
-	(bus)
-)
-(connector
-	(pt 1832 776)
-	(pt 1888 776)
-	(bus)
-)
-(connector
-	(pt 1840 792)
-	(pt 1888 792)
-	(bus)
-)
-(connector
-	(pt 1848 808)
-	(pt 1888 808)
-	(bus)
-)
-(connector
-	(pt 1856 824)
-	(pt 1888 824)
-	(bus)
-)
-(connector
-	(pt 1336 856)
-	(pt 1824 856)
-	(bus)
-)
-(connector
-	(pt 1824 856)
-	(pt 1824 760)
-	(bus)
-)
-(connector
-	(pt 1888 760)
-	(pt 1824 760)
-	(bus)
-)
-(connector
+	(pt 2296 424)
 	(pt 1112 424)
-	(pt 1856 424)
 	(bus)
 )
 (connector
-	(pt 1856 712)
-	(pt 1856 424)
+	(pt 2296 712)
+	(pt 2296 424)
 	(bus)
 )
 (junction (pt 728 152))

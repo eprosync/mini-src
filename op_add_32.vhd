@@ -1,17 +1,17 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity carry_lookahead_adder_32 is 
+entity op_add_32 is 
 	port(
-		A: IN std_logic_vector(31 DOWNTO 0); -- Input A
-		B: IN std_logic_vector(31 DOWNTO 0); -- Input B
-		Cin: IN std_logic; -- Carry in bit
-		S: OUT std_logic_vector(31 DOWNTO 0); -- Sum
-		Cout: OUT std_logic -- Carry out bit
+		A: in std_logic_vector(31 DOWNTO 0); -- Input A
+		B: in std_logic_vector(31 DOWNTO 0); -- Input B
+		Cin: in std_logic; -- Carry in bit
+		S: out std_logic_vector(31 DOWNTO 0); -- Sum
+		Cout: out std_logic -- Carry out bit
 	);
-end carry_lookahead_adder_32;
+end entity;
 
-architecture behavior of carry_lookahead_adder_32 is 
+architecture behavior of op_add_32 is 
 signal G : std_logic_vector(31 downto 0); -- generate signal
 signal P : std_logic_vector(31 downto 0); -- propogate signal
 signal C : std_logic_vector(31 downto 0); -- carry signal

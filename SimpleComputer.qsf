@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone III"
 set_global_assignment -name DEVICE EP3C16F484C6
-set_global_assignment -name TOP_LEVEL_ENTITY phase1
+set_global_assignment -name TOP_LEVEL_ENTITY alu
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:31:14  JANUARY 22, 2023"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
@@ -50,7 +50,7 @@ set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH booth_32_bitPair_tb -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH alu_tb -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_NAME mdmux_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id mdmux_tb
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "40 ns" -section_id mdmux_tb
@@ -63,23 +63,22 @@ set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "60 ns" -section_id busmu
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME busmux_tb -section_id busmux_tb
 set_global_assignment -name EDA_TEST_BENCH_NAME alu_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id alu_tb
-set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "80 ns" -section_id alu_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "240 ns" -section_id alu_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME alu_tb -section_id alu_tb
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name EDA_TEST_BENCH_NAME carry_lookahead_adder_32_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id carry_lookahead_adder_32_tb
-set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "60 ns" -section_id carry_lookahead_adder_32_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME carry_lookahead_adder_32_tb -section_id carry_lookahead_adder_32_tb
-set_global_assignment -name VHDL_FILE booth_32_bitPair.vhd
-set_global_assignment -name VHDL_FILE carry_lookahead_adder.vhd
+set_global_assignment -name BDF_FILE alu.bdf
+set_global_assignment -name VHDL_FILE op_mul_32_tb.vhd
+set_global_assignment -name VHDL_FILE op_mul_32.vhd
+set_global_assignment -name VHDL_FILE op_add_32_tb.vhd
+set_global_assignment -name VHDL_FILE op_add_32.vhd
+set_global_assignment -name VHDL_FILE op_add_16.vhd
+set_global_assignment -name VHDL_FILE alu_op_decider.vhd
+set_global_assignment -name VHDL_FILE alu_guard_switch.vhd
+set_global_assignment -name VHDL_FILE alu_32_to_64.vhd
 set_global_assignment -name BDF_FILE phase1.bdf
 set_global_assignment -name BDF_FILE SimpleComputer.bdf
 set_global_assignment -name VHDL_FILE reg64.vhd
 set_global_assignment -name VHDL_FILE reg32.vhd
-set_global_assignment -name VHDL_FILE alu.vhd
 set_global_assignment -name VHDL_FILE alu_tb.vhd
 set_global_assignment -name VHDL_FILE mdmux.vhd
 set_global_assignment -name VHDL_FILE encoder32to5.vhd
@@ -87,21 +86,82 @@ set_global_assignment -name VHDL_FILE busmux.vhd
 set_global_assignment -name VHDL_FILE mdmux_tb.vhd
 set_global_assignment -name VHDL_FILE busmux_tb.vhd
 set_global_assignment -name VHDL_FILE zsplit.vhd
-set_global_assignment -name VHDL_FILE carry_lookahead_adder_32.vhd
-set_global_assignment -name VHDL_FILE carry_lookahead_adder_32_tb.vhd
-set_global_assignment -name VHDL_FILE booth_32_bitPair_tb.vhd
+set_global_assignment -name VHDL_FILE op_not_32.vhd
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VHDL_FILE alu_op_combiner.vhd
+set_global_assignment -name EDA_TEST_BENCH_NAME op_mul_32_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id op_mul_32_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME op_mul_32_tb -section_id op_mul_32_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME op_add_32_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id op_add_32_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME op_add_32_tb -section_id op_add_32_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "100 ns" -section_id op_mul_32_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "100 ns" -section_id op_add_32_tb
+set_global_assignment -name VHDL_FILE op_not_32_tb.vhd
+set_global_assignment -name EDA_TEST_BENCH_NAME op_not_32_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id op_not_32_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "60 ns" -section_id op_not_32_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME op_not_32_tb -section_id op_not_32_tb
+set_global_assignment -name VHDL_FILE op_and_32.vhd
+set_global_assignment -name VHDL_FILE op_and_32_tb.vhd
+set_global_assignment -name EDA_TEST_BENCH_NAME op_and_32_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id op_and_32_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "60 ns" -section_id op_and_32_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME op_and_32_tb -section_id op_and_32_tb
+set_global_assignment -name VHDL_FILE op_or_32.vhd
+set_global_assignment -name VHDL_FILE op_or_32_tb.vhd
+set_global_assignment -name EDA_TEST_BENCH_NAME op_or_32_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id op_or_32_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "60 ns" -section_id op_or_32_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME op_or_32_tb -section_id op_or_32_tb
+set_global_assignment -name VHDL_FILE op_shr_32.vhd
+set_global_assignment -name VHDL_FILE op_shr_32_tb.vhd
+set_global_assignment -name EDA_TEST_BENCH_NAME op_shr_32_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id op_shr_32_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "60 ns" -section_id op_shr_32_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME op_shr_32_tb -section_id op_shr_32_tb
+set_global_assignment -name VHDL_FILE op_shl_32.vhd
+set_global_assignment -name VHDL_FILE op_shl_32_tb.vhd
+set_global_assignment -name VHDL_FILE op_ror_32.vhd
+set_global_assignment -name VHDL_FILE op_rol_32.vhd
+set_global_assignment -name VHDL_FILE op_ror_32_tb.vhd
+set_global_assignment -name VHDL_FILE op_rol_32_tb.vhd
+set_global_assignment -name EDA_TEST_BENCH_NAME op_shl_32_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id op_shl_32_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "60 ns" -section_id op_shl_32_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME op_shl_32_tb -section_id op_shl_32_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE op_shl_32.vhd -section_id op_shl_32_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE op_shl_32_tb.vhd -section_id op_shl_32_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME op_ror_32_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id op_ror_32_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "60 ns" -section_id op_ror_32_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME op_ror_32_tb -section_id op_ror_32_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE op_ror_32.vhd -section_id op_ror_32_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE op_ror_32_tb.vhd -section_id op_ror_32_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME op_rol_32_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id op_rol_32_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "60 ns" -section_id op_rol_32_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME op_rol_32_tb -section_id op_rol_32_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE op_rol_32.vhd -section_id op_rol_32_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE op_rol_32_tb.vhd -section_id op_rol_32_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE mdmux_tb.vhd -section_id mdmux_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE mdmux.vhd -section_id mdmux_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE busmux_tb.vhd -section_id busmux_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE busmux.vhd -section_id busmux_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE alu.vhd -section_id alu_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE alu_tb.vhd -section_id alu_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE carry_lookahead_adder_32.vhd -section_id carry_lookahead_adder_32_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE carry_lookahead_adder_32_tb.vhd -section_id carry_lookahead_adder_32_tb
-set_global_assignment -name EDA_TEST_BENCH_NAME booth_32_bitPair_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id booth_32_bitPair_tb
-set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "60 ns" -section_id booth_32_bitPair_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME booth_32_bitPair_tb -section_id booth_32_bitPair_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE booth_32_bitPair.vhd -section_id booth_32_bitPair_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE booth_32_bitPair_tb.vhd -section_id booth_32_bitPair_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE alu.vhd -section_id alu_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE op_mul_32.vhd -section_id op_mul_32_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE op_mul_32_tb.vhd -section_id op_mul_32_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE op_add_32.vhd -section_id op_add_32_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE op_add_32_tb.vhd -section_id op_add_32_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE op_not_32.vhd -section_id op_not_32_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE op_not_32_tb.vhd -section_id op_not_32_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE op_and_32.vhd -section_id op_and_32_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE op_and_32_tb.vhd -section_id op_and_32_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE op_or_32.vhd -section_id op_or_32_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE op_or_32_tb.vhd -section_id op_or_32_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE op_shr_32.vhd -section_id op_shr_32_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE op_shr_32_tb.vhd -section_id op_shr_32_tb
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

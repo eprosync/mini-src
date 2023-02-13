@@ -18,40 +18,33 @@ programming logic devices manufactured by Altera and sold by
 Altera or its authorized distributors.  Please refer to the 
 applicable agreement for further details.
 */
-(header "symbol" (version "1.2"))
+(header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 160 112)
-	(text "alu" (rect 5 0 21 14)(font "Arial" (font_size 8)))
-	(text "inst" (rect 8 80 25 92)(font "Arial" ))
+	(rect 16 16 176 96)
+	(text "op_shr_32" (rect 5 0 48 12)(font "Arial" ))
+	(text "inst" (rect 8 64 20 76)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
-		(text "A[31..0]" (rect 0 0 44 14)(font "Arial" (font_size 8)))
-		(text "A[31..0]" (rect 21 27 65 41)(font "Arial" (font_size 8)))
+		(text "A[31..0]" (rect 0 0 31 12)(font "Arial" ))
+		(text "A[31..0]" (rect 21 27 52 39)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(port
 		(pt 0 48)
 		(input)
-		(text "B[31..0]" (rect 0 0 43 14)(font "Arial" (font_size 8)))
-		(text "B[31..0]" (rect 21 43 64 57)(font "Arial" (font_size 8)))
+		(text "B[31..0]" (rect 0 0 29 12)(font "Arial" ))
+		(text "B[31..0]" (rect 21 43 50 55)(font "Arial" ))
 		(line (pt 0 48)(pt 16 48)(line_width 3))
 	)
 	(port
-		(pt 0 64)
-		(input)
-		(text "CS[3..0]" (rect 0 0 44 14)(font "Arial" (font_size 8)))
-		(text "CS[3..0]" (rect 21 59 65 73)(font "Arial" (font_size 8)))
-		(line (pt 0 64)(pt 16 64)(line_width 3))
-	)
-	(port
-		(pt 144 32)
+		(pt 160 32)
 		(output)
-		(text "C[63..0]" (rect 0 0 43 14)(font "Arial" (font_size 8)))
-		(text "C[63..0]" (rect 80 27 123 41)(font "Arial" (font_size 8)))
-		(line (pt 144 32)(pt 128 32)(line_width 3))
+		(text "C[31..0]" (rect 0 0 30 12)(font "Arial" ))
+		(text "C[31..0]" (rect 109 27 139 39)(font "Arial" ))
+		(line (pt 160 32)(pt 144 32)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 16 128 80))
+		(rectangle (rect 16 16 144 64)(line_width 1))
 	)
 )

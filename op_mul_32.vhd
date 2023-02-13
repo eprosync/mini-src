@@ -2,15 +2,15 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity booth_32_bitPair is 
+entity op_mul_32 is 
 	port(
-		M: in signed(31 DOWNTO 0); -- Multiplicand
-		Q: in signed(31 DOWNTO 0); -- Multiplier
-		P: out signed(63 DOWNTO 0)
+		M: in std_logic_vector(31 DOWNTO 0); -- Multiplicand
+		Q: in std_logic_vector(31 DOWNTO 0); -- Multiplier
+		P: out std_logic_vector(63 DOWNTO 0)
 	);
 end entity;
 
-architecture behavior of booth_32_bitPair is
+architecture behavior of op_mul_32 is
 
 begin
 	process (M, Q)
@@ -28,12 +28,13 @@ begin
 	begin
 		-- setup our variables
 		product_storage := x"0000_0000_0000_0000";
-		multiplier_storage := Q;
-		multiplicand_storage := M;
-		M_bit_pattern := Q(2 downto 0);
+		multiplier_storage := signed(Q);
+		multiplicand_storage := signed(M);
+		multiplicand_storage := multiplicand_storage sll 1;
+		M_bit_pattern := multiplier_storage(2 downto 0);
 		
 		-- since this is 2-bit pairing, we need to only travel half the amount of bits
-		for bit_offset in 0 to 15 loop
+		for i in 0 to 15 loop
 			
 			-- check what pattern to use
 			case M_bit_pattern is
@@ -55,11 +56,11 @@ begin
 			
 			-- shift our multiplicand by 2, we will use this again to add onto it based
 			-- on how the pattern is
-			multiplicand_storage := (multiplicand_storage (30 downto 0) & '0');
+			multiplicand_storage := multiplicand_storage sll 2;
 			multiplier_storage := multiplier_storage srl 2; -- shifting to the right to remove pattern
 			M_bit_pattern := multiplier_storage(2 downto 0); -- grabbing a new pattern
 		end loop;
 		
-		P <= product_storage;
+		P <= std_logic_vector(product_storage);
 	end process;
 end architecture;

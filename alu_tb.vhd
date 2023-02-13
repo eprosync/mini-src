@@ -7,10 +7,10 @@ use ieee.numeric_std.all;
 
 -- In test benchs we don't have any ports
 -- This is because we aren't making a component but rather a simulation
-entity ALU_tb is 
+entity alu_tb is 
 end entity;
 
-architecture ALU_tb_arch of ALU_tb is
+architecture alu_tb_arch of alu_tb is
 	-- create our mock signals to shove into the component
 	signal A_tb : std_logic_vector(31 downto 0);
 	signal B_tb : std_logic_vector(31 downto 0);
@@ -19,7 +19,7 @@ architecture ALU_tb_arch of ALU_tb is
 	-- we will be looking for this signal in modelsim to see if it works
 	signal C_tb : std_logic_vector(63 downto 0);
 	
-	component ALU
+	component alu
 		port (
 			A,B : in std_logic_vector (31 downto 0);
 			CS : in std_logic_vector (3 downto 0);
@@ -28,7 +28,7 @@ architecture ALU_tb_arch of ALU_tb is
 	end component;
 begin
 	-- map our mock signals to the component
-	DUT1 : ALU
+	DUT1 : alu
 		port map (
 			A => A_tb,
 			B => B_tb,
@@ -60,16 +60,46 @@ begin
 		wait for 20ns;
 		
 		-- multiply
-		A_tb <= b"00000000000000000000000000000010";
-		B_tb <= b"00000000000000000000000000000100";
+		A_tb <= b"00000000000000000000000000000100";
+		B_tb <= b"00000000000000000000000000000010";
 		CS_tb <= b"0010";
 		
 		wait for 20ns;
 		
 		-- divide
-		A_tb <= b"00000000000000000000000000001000";
-		B_tb <= b"00000000000000000000000000000010";
-		CS_tb <= b"0011";
+		--A_tb <= b"00000000000000000000000000001000";
+		--B_tb <= b"00000000000000000000000000000010";
+		--CS_tb <= b"0011";
+		
+		wait for 20ns;
+		
+		-- and
+		A_tb <= b"00000000000000000000000001111111";
+		B_tb <= b"00000000000000000000000000011100";
+		CS_tb <= b"0100";
+		
+		wait for 20ns;
+		
+		-- or
+		A_tb <= b"00000000000000000000000000001111";
+		B_tb <= b"00000000000000000000000000111100";
+		CS_tb <= b"0101";
+		
+		wait for 20ns;
+		
+		-- not
+		A_tb <= b"00000000000000000000000001111111";
+		B_tb <= b"00000000000000000000000000000000";
+		CS_tb <= b"1010";
+		
+		wait for 20ns;
+		
+		-- negate
+		A_tb <= b"00000000000000000000000001010101";
+		B_tb <= b"00000000000000000000000000000000";
+		CS_tb <= b"1011";
+		
+		wait for 20ns;
 		
 		wait;
 	end process;

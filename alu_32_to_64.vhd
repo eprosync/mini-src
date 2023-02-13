@@ -16,7 +16,7 @@ begin
 	process(C_in, en)
 	begin
 		case en is
-			when '1' => C_out <= std_logic_vector(unsigned(C_in) + x"0000_0000_0000_0000");
+			when '1' => C_out <= std_logic_vector(signed(C_in) + x"0000_0000_0000_0000");
 			when others => C_out <= x"0000_0000_0000_0000";
 		end case;
 	end process;

@@ -6,7 +6,6 @@ entity alu_32_to_64 is
 	port (
 		en : in std_logic;
 		C_in : in std_logic_vector(31 downto 0);
-		C_in_64 : in std_logic_vector(63 downto 0);
 		C_out : out std_logic_vector(63 downto 0)
 	);
 end entity;
@@ -14,10 +13,10 @@ end entity;
 architecture behavior of alu_32_to_64 is
 
 begin
-	process(C_in, C_in_64, en)
+	process(C_in, en)
 	begin
 		case en is
-			when '1' => C_out <= std_logic_vector(signed(C_in) + x"0000_0000_0000_0000") or C_in_64;
+			when '1' => C_out <= std_logic_vector(signed(C_in) + x"0000_0000_0000_0000");
 			when others => C_out <= x"0000_0000_0000_0000";
 		end case;
 	end process;

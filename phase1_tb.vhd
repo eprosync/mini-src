@@ -23,7 +23,7 @@ ARCHITECTURE datapath_tb_arch OF datapath_tb IS -- Add any other signals to see 
         PCout, ZLOout, MDRout, R2out, R3out: in std_logic;
         MARin, Zin, PCin, MDRin, IRin, Yin: in std_logic;
         IncPC, Read, AND, R1in, R2in, R3in: in std_logic;
-        Clock: in Std_logic;
+        Clock: in std_logic;
         Mdatain: in std_logic_vector (31 downto 0);
     );
 END COMPONENT datapath;

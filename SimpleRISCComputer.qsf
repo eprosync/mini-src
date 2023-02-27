@@ -41,7 +41,7 @@ set_global_assignment -name DEVICE EP3C16F484C6
 set_global_assignment -name TOP_LEVEL_ENTITY SimpleRISCComputer
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "23:18:09  FEBRUARY 25, 2023"
-set_global_assignment -name LAST_QUARTUS_VERSION 13.1
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -153,7 +153,6 @@ set_global_assignment -name EDA_TEST_BENCH_NAME phase1_and_tb -section_id eda_si
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id phase1_and_tb
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "520 ns" -section_id phase1_and_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME phase1_and_tb -section_id phase1_and_tb
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name EDA_TEST_BENCH_NAME phase1_or_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id phase1_or_tb
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "520 ns" -section_id phase1_or_tb
@@ -536,3 +535,4 @@ set_global_assignment -name EDA_TEST_BENCH_FILE src/mux/busmux.v -section_id pha
 set_global_assignment -name EDA_TEST_BENCH_FILE src/mux/mdmux.v -section_id phase1_not_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE src/modules/alu.v -section_id phase1_not_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE src/coder/busmux_encoder.v -section_id phase1_not_tb
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

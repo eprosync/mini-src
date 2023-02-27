@@ -76,7 +76,7 @@ module phase1_shra_tb;
                 R1in <= 0; R3in <= 0; R5in <= 0; Mdatain <= 32'h00000000;
             end
             Reg_load1a: begin
-                Mdatain <= 32'b11111111111111111111111111111110;
+                Mdatain <= 32'b11111111111111111111111101011010;
                 Read = 0; MDRin = 0; // the first zero is there for completeness
                 #10 Read <= 1; MDRin <= 1;
                 #15 Read <= 0; MDRin <= 0;

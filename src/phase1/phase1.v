@@ -20,13 +20,13 @@ module phase1(
         // ALU, for making the ALU do stuff and other things
         input Yin, Zin, ZHIout, ZLOout,
         input [4:0] ALUControl,
-		  output wire [31:0] Y_data_out,
+		output wire [31:0] Y_data_out,
         output wire [63:0] Z_data_out,
 
         // Memory Management, so that we can shove data in
         input MDRin, MARin, MDRout, Read,
         input [31:0] Mdatain,
-		  output wire [31:0] MDR_data_in, MDR_data_out, MAR_data_out,
+		output wire [31:0] MDR_data_in, MDR_data_out, MAR_data_out,
 
         // For debugging (also for TA to mark!)
         output wire [31:0] R0_data_out, R1_data_out, R2_data_out, R3_data_out, R4_data_out, R5_data_out, R6_data_out, R7_data_out, R8_data_out, R9_data_out, R10_data_out, R11_data_out, R12_data_out, R13_data_out, R14_data_out, R15_data_out,

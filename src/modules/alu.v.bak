@@ -1,0 +1,48 @@
+module ALU(
+    input Clock, Clear,
+    input [4:0] Control,
+    input [31:0] reg_A, reg_B,
+    output reg [63:0] reg_C);
+
+    // If you one-line all of this, it will be the end of you.
+    parameter
+        add_select = 5'b00000,
+        sub_select = 5'b00001,
+        mul_select = 5'b00010,
+        div_select = 5'b00011,
+        sll_select = 5'b00100,
+        slr_select = 5'b00101,
+        rol_select = 5'b00110,
+        ror_select = 5'b00111,
+        and_select = 5'b01000,
+        or_select = 5'b01001,
+        not_select = 5'b01010,
+        negate_select = 5'b01011;
+
+    // I hate this but this works
+    wire [31:0] add_out, sub_out, mul_out, div_out;
+    op_add_32 add_op (.Ain(reg_A),.Bin(reg_B),.Cin(1'b0),.Zout(add_out));
+    op_sub_32 sub_op (.Ain(reg_A),.Bin(reg_B),.Zout(sub_out));
+    op_mul_32 mul_op (.Ain(reg_A),.Bin(reg_B),.Zout(mul_out));
+    op_div_32 div_op (.Ain(reg_A),.Bin(reg_B),.Zout(div_out));
+
+    always @ (*)
+    begin 
+        case(Control)
+            add_select: begin
+                reg_C[31:0] = add_out;
+                reg_C[63:32] = 32'b0;
+            end
+            sub_select: begin
+                reg_C[31:0] = sub_out;
+                reg_C[63:32] = 32'b0;
+            end
+            mul_select: begin
+                reg_C = mul_out;
+            end
+            div_select: begin
+                reg_C = div_out;
+            end
+        endcase
+    end
+endmodule

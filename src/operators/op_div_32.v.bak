@@ -1,0 +1,7 @@
+module op_div_32(input signed [31:0] Ain, Bin, output signed [63:0] Zout);
+	always @ (*)
+	begin
+		Zout = (Ain % Bin) & (Ain / Bin);
+		// ^ big move right here :D
+	end
+endmodule

@@ -1,0 +1,32 @@
+module op_add_32_tb;
+
+  // Declare inputs and outputs
+  reg [31:0] Ain, Bin;
+  reg Cin;
+  wire [31:0] Rout;
+  wire Cout;
+
+  // Instantiate module under test
+  op_add_32 dut(
+    .Ain(Ain),
+    .Bin(Bin),
+    .Cin(Cin),
+    .Rout(Rout),
+    .Cout(Cout)
+  );
+
+  // Initialize inputs
+  initial begin
+    Ain = 32'h12345678;
+    Bin = 32'h87654321;
+    Cin = 0;
+  end
+
+  // Apply test stimuli
+  always #10 Cin = 1;
+
+  // Check output and report errors
+  always #10 if (Rout !== 32'h99999999) $display("Error at time %t", $time);
+  always #10 if (Cout !== 1) $display("Error at time %t", $time);
+
+endmodule

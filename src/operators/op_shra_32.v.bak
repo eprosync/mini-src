@@ -1,0 +1,6 @@
+module op_shla_32(input [31:0] Ain, Bin, output [31:0] Zout);
+    reg signed [31:0] temp_A, temp_B;
+    temp_A = $signed(Ain);
+    temp_B = $signed(Bin);
+    assign Zout = $vector(Ain >> Bin);
+endmodule

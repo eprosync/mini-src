@@ -11,7 +11,8 @@ module phase1_and_tb;
     reg [31:0] Mdatain;
 
     wire [31:0] R1_data_out, R2_data_out, R3_data_out, MuxBusOut;
-	 wire [31:0] MDR_data_in, MDR_data_out, Y_data_out, Z_data_out;
+	wire [31:0] MDR_data_in, MDR_data_out, Y_data_out;
+    wire [63:0] Z_data_out;
 
     parameter Default = 4'b0000, Reg_load1a = 4'b0001, Reg_load1b = 4'b0010, Reg_load2a = 4'b0011,
     Reg_load2b = 4'b0100, Reg_load3a = 4'b0101, Reg_load3b = 4'b0110, T0 = 4'b0111,
@@ -56,11 +57,11 @@ module phase1_and_tb;
             Reg_load2b : #40 Present_state = Reg_load3a;
             Reg_load3a : #40 Present_state = Reg_load3b;
             Reg_load3b : #40 Present_state = T0;
-            T0 : #40 Present_state = T1;
-            T1 : #40 Present_state = T2;
-            T2 : #40 Present_state = T3;
-            T3 : #40 Present_state = T4;
-            T4 : #40 Present_state = T5;
+            T0 : Present_state = T1;
+            T1 : Present_state = T2;
+            T2 : Present_state = T3;
+            T3 : Present_state = T4;
+            T4 : Present_state = T5;
         endcase
     end
 
@@ -111,12 +112,10 @@ module phase1_and_tb;
                 PCout <= 0; MARin <= 0; Zin <= 0;
                 ZLOout <= 1; PCin <= 1; IncrementPC <= 1; Read <= 1; MDRin <= 1;
                 Mdatain <= 32'h28918000; // opcode for “and R1, R2, R3”
-                #10;
-                PCin <= 0; IncrementPC <= 0;
-                #10;
+                #20;
             end
             T2: begin
-                ZLOout <= 0; Read <= 0; MDRin <= 0;
+                PCin <= 0; IncrementPC <= 0; ZLOout <= 0; Read <= 0; MDRin <= 0;
                 MDRout <= 1; IRin <= 1;
                 #20;
             end
@@ -131,7 +130,7 @@ module phase1_and_tb;
                 #20;
             end
             T5: begin
-                R3out <= 0; ALUControl <= 5'b0; Zin <= 0;
+                Zin <= 0; R3out <= 0; ALUControl <= 5'b0;
                 ZLOout <= 1; R1in <= 1;
                 #20;
             end

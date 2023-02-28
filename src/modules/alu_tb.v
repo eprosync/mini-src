@@ -20,6 +20,7 @@ module alu_tb;
 
   // Initialize inputs
   initial begin
+    // this is just to make sure switching control works
     A_in = 32'h00000004;
     B_in = 32'h00000004;
     Control = 5'b00000;

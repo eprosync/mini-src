@@ -18,8 +18,8 @@ module op_div_32_tb;
         
     #10; // 10 nano seconds
         
-    Ain = 32'h00000004;
-    Bin = 32'h00000002;
+    Ain = 32'b1000;
+    Bin = 32'b0011;
         
     #10; // 10 nano seconds
   end

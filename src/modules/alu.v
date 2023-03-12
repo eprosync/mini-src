@@ -10,16 +10,41 @@ module ALU(
         sub_select = 5'b00001,
         mul_select = 5'b00010,
         div_select = 5'b00011,
+
         shl_select = 5'b00100,
         shr_select = 5'b00101,
         shla_select = 5'b00111,
         shra_select = 5'b01000,
         rol_select = 5'b01001,
         ror_select = 5'b01010,
+
         and_select = 5'b01011,
         or_select = 5'b01100,
         not_select = 5'b01101,
-        neg_select = 5'b01110;
+        neg_select = 5'b01110,
+        
+        load_select = 5'b01111,
+        load_imm_select = 5'b10000,
+        store_select = 5'b10001,
+
+        addi_select = 5'b10010,
+        andi_select = 5'b10011,
+        ori_select = 5'b10100,
+
+        // for CON FF logic
+        brzr_select = 5'b10101,
+        brnz_select = 5'b10110,
+        brmi_select = 5'b10111,
+        brpl_select = 5'b11000,
+        
+        jr_select = 5'b11001,
+        jal_select = 5'b11010,
+
+        mfhi_select = 5'b11011,
+        mflo_select = 5'b11100,
+
+        in_select = 5'b11101,
+        out_select = 5'b11110;
 
     // I hate this but this works
     wire [31:0] add_out, sub_out;
@@ -47,7 +72,7 @@ module ALU(
     always @ (*)
     begin 
         case(Control)
-            add_select: begin
+            add_select, addi_select: begin
                 reg_C[31:0] = add_out;
                 reg_C[63:32] = 32'b0;
             end
@@ -87,15 +112,15 @@ module ALU(
                 reg_C[31:0] = ror_out;
                 reg_C[63:32] = 32'b0;
             end
-            and_select: begin
+
+            and_select, andi_select: begin
                 reg_C[31:0] = and_out;
                 reg_C[63:32] = 32'b0;
             end
-            or_select: begin
+            or_select, ori_select: begin
                 reg_C[31:0] = or_out;
                 reg_C[63:32] = 32'b0;
             end
-
             not_select: begin
                 reg_C[31:0] = not_out;
                 reg_C[63:32] = 32'b0;
